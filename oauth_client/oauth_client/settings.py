@@ -32,7 +32,10 @@ OAUTH_FETCH_TOKEN_URL="http://127.0.0.1:8000/o/token/"
 OAUTH_CLIENT_ID="aaaa"
 OAUTH_SECRET="bbbb"
 OAUTH_HOST="http://127.0.0.1:8000"
-OAUTH_LOGIN_REDIRECT_URL=f"{OAUTH_HOST}/o/authorize/?response_type=code&client_id={OAUTH_CLIENT_ID}&redirect_uri=http://localhost:7000/retrive_token/"
+REDIRECT_URL="http://localhost:7000/retrive_token/"
+API_REDIRECT_URL="http://localhost:3000/"
+OAUTH_LOGIN_REDIRECT_URL=f"{OAUTH_HOST}/o/authorize/?response_type=code&client_id={OAUTH_CLIENT_ID}&redirect_uri={REDIRECT_URL}"
+OAUTH_LOGIN_REDIRECT_URL_FOR_APIS=f"{OAUTH_HOST}/o/authorize/?response_type=code&client_id={OAUTH_CLIENT_ID}&redirect_uri={API_REDIRECT_URL}"
 
 
 
@@ -65,7 +68,13 @@ MIDDLEWARE = [
 OAUTH2_PROVIDER = {
     'RESOURCE_SERVER_INTROSPECTION_URL': f'{OAUTH_HOST}/o/introspect/',
     'RESOURCE_SERVER_INTROSPECTION_CREDENTIALS': (OAUTH_CLIENT_ID,OAUTH_SECRET),
+    "OIDC_ENABLED": True,
+    "SCOPES": {
+        "openid": "OpenID Connect scope",
+    },
 }
+
+
 
 
 

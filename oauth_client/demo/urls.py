@@ -19,7 +19,9 @@ from demo import views
 
 
 urlpatterns = [
+    path('', views.login_page),
     path('secret_page/', views.secret_page),
     path('retrive_token/', views.retrive_token),
-    path('login_page/', views.login_page),
+    path('is_login/', views.is_login), 
+    path('logout/', views.logout),
 ]

@@ -21,4 +21,5 @@ from demo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("demo.urls")),
+    path("o/", include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

@@ -19,7 +19,9 @@ from users_apis import views
 
 
 urlpatterns = [
-    path('login_page/', views.login_page),
+    path('', views.login_page),
     path('secret_page/', views.secret_page),
     path('retrive_token/', views.retrive_token),
+    path('is_login/', views.is_login),    
+    path('logout/', views.logout),    
 ]
