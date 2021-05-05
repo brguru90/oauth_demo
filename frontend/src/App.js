@@ -168,7 +168,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App"  style={{color: window.location.pathname=="about"?"red":"black"}}>
       <center>
         <button onClick={verifyLogin}>Check access</button><br />
 
